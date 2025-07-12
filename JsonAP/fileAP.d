@@ -8,7 +8,7 @@ import PublicCodeOtherCode;
 
 alias Optional = Nullable;
 
-public class CL_FileAP
+public static class CL_FileAP
 {
 	public static Optional!T readJsonFile(string filePath)(){
 		try{
@@ -51,7 +51,7 @@ public class CL_FileAP
 		try
 		{
 			enforce(exists(filePath), new FileException("File not found for size.", filePath));
-			long fileSize = std.file.getSize(filePath);ُ
+			long fileSize = std.file.getSize(filePath);
 			return Optional!long(fileSize);
 		}catch(FileException  e)
 		{
@@ -62,7 +62,7 @@ public class CL_FileAP
 		}
 	}
 
-	public static Optional!(T[]}) readJsonArray(string filepath)()
+	public static Optional!(T[]) readJsonArray(string filepath)()
 	{
 		try{
 
