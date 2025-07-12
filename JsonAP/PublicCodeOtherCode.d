@@ -1,6 +1,41 @@
 module PublicCodeOtherCode;
 
-public class CL_PublicCodeOtherCode
+import std.stdio;
+import std.string;
+
+public static class JsonOperationException : Exception{
+	this(string msg, string file = __FILE__ , size_t line = __LINE__ , Throwable next = null) pure{
+		super(msg,file,line,next);
+	}
+}
+
+public  class CL_PublicCodeOtherCode
 {
+	public static isDigitAP(dchar c)
+	{
+		if(c >= '0'  && c <= '9')
+		{
+			return true;
+		}
+		if (c >= '۰' && c <= '۹') {
+            return true;
+        }
+
+		return false;
+	}
+
+
+	public static bool isInteger(string s) {
+        if (s.empty) return false;
+			
+		foreach(dchar c; s)
+		{
+			if(!isDigitAP(c))
+			{
+				return false;
+			}
+		}
+        return true;
+    }
 
 }
