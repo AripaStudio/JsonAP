@@ -1,12 +1,6 @@
 module JsonAP;
 
-import core.sys.windows.windows;
-import core.sys.windows.dll;
-
-export int foo()
+public class JsonAP
 {
-	return 42;
+
 }
-
-mixin SimpleDllMain;
-
