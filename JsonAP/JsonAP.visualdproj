@@ -508,6 +508,6 @@
   <File path="CoreAP.d" />
   <File path="fileAP.d" />
   <File path="JsonAP.d" />
-  <File path="packageAP.d" />
+  <File path="PublicCodeOtherCode.d" />
  </Folder>
 </DProject>
