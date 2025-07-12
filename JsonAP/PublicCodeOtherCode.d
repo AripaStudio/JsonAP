@@ -1,7 +1,12 @@
 module PublicCodeOtherCode;
 
+import std.json;
+import std.typecons; 
 import std.stdio;
+import std.conv;
 import std.string;
+
+alias Optional = Nullable;
 
 public static class JsonOperationException : Exception{
 	this(string msg, string file = __FILE__ , size_t line = __LINE__ , Throwable next = null) pure{
@@ -37,5 +42,8 @@ public static class CL_PublicCodeOtherCode
 		}
         return true;
     }
+
+
+
 
 }

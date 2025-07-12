@@ -145,6 +145,36 @@ public class CL_CoreAP
         }
 
 	}
+
+	public static bool isJsonObject(string jsonContent)
+	{
+		try{
+			auto val = parseJSON(jsonContent);
+			return val.type == JSON_TYPE.OBJECT;
+		} catch (JSONException e)
+		{
+			return false; 
+		}catch (Exception e)
+		{
+			return false; 
+		}
+
+	}
+
+
+	public static bool isJsonArray(string jsonContent)
+	{
+		try{
+			auto val = parseJSON(jsonContent);
+			return val.type == JSON_TYPE.ARRAY;
+		} catch (JSONException e)
+		{
+			return false; 
+		}catch (Exception e)
+		{
+			return false; 
+		}
+	}
 	
 
 
