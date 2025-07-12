@@ -9,7 +9,7 @@ public static class JsonOperationException : Exception{
 	}
 }
 
-public  class CL_PublicCodeOtherCode
+public static class CL_PublicCodeOtherCode
 {
 	public static isDigitAP(dchar c)
 	{

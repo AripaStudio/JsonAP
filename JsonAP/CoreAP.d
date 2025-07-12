@@ -94,7 +94,57 @@ public class CL_CoreAP
         }
 	}
 
+	public static Optional!V getJsonValue(string jsonContent , string path)(){
+		
+		try{
+			
+			JSONValue root = parseJSON(jsonContent);
+			JSONValue current = root;
 
+			foreach(segment; path.split('.'))
+			{
+				if(current.type == JSON_TYPE.OBJECT)
+				{
+					if(segment in current.object)
+					{
+						current = current.object[segment];
+					}else
+					{
+						return Optional!V.init;
+					}
+				}else if(current.type == JSON_TYPE.ARRAY && CL_PublicCodeOtherCode.isInteger(segment))
+				{
+					int index = segment.to!int;
+					if(index >= 0 && index < current.array.length)
+					{
+						current = current.array[index];
+
+					}else
+					{
+						return Optional!V.init;
+					}
+				}else
+				{
+					return Optional!V.init;
+				}
+			}
+
+
+			mixin(q{
+				static if (is(V == string)) return Optional!V(current.str);
+                else static if (is(V == long) || is(V == int)) return Optional!V(current.integer.to!V());
+                else static if (is(V == double) || is(V == float)) return Optional!V(current.floating.to!V());
+                else static if (is(V == bool)) return Optional!V(current.boolean);                
+                else return Optional!V.init; 
+			});
+
+		}catch (JSONException e) {            
+			throw new JsonOperationException("Error parsing JSON :" ~ e.msg, __FILE__, __LINE__, e);						            
+        } catch (Exception e) {            
+            throw new JsonOperationException("General error :" ~ e.msg, __FILE__, __LINE__, e);						            
+        }
+
+	}
 	
 
 
