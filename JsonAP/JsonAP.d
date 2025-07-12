@@ -10,59 +10,59 @@ alias Optional = Nullable;
 
 public class JsonAP
 {
-	export static Optional!T readJsonFile(string filePath)() {
+	export static Optional!T APreadJsonFile(string filePath)() {
         return CL_FileAP.readJsonFile!T(filePath);
     }
 
-    export static bool writeJsonFile(T)(string filePath, T data) {
+    export static bool APwriteJsonFile(T)(string filePath, T data) {
         return CL_FileAP.writeJsonFile!T(filePath, data);
     }
 
-    export static Optional!long getJsonFileSize(string filePath) {
+    export static Optional!long APgetJsonFileSize(string filePath) {
         return CL_FileAP.getJsonFileSize(filePath);
     }
 
-    export static Optional!(T[]) readJsonArray(string filePath)() {
+    export static Optional!(T[]) APreadJsonArray(string filePath)() {
         return CL_FileAP.readJsonArray!T(filePath);
     }
 
-    export static bool isValidJson(string jsonContent) {
+    export static bool APisValidJson(string jsonContent) {
         return CL_CoreAP.isValidJson(jsonContent);
     }
 
-    export static Optional!long getJsonItemCount(string jsonContent) {
+    export static Optional!long APgetJsonItemCount(string jsonContent) {
         return CL_CoreAP.getJsonItemCount(jsonContent);
     }
 
-    export static bool isJsonNumber(string jsonContent) {
+    export static bool APisJsonNumber(string jsonContent) {
         return CL_CoreAP.isJsonNumber(jsonContent);
     }
 
-    export static bool isJsonString(string jsonContent) {
+    export static bool APisJsonString(string jsonContent) {
         return CL_CoreAP.isJsonString(jsonContent);
     }
 
-    export static Optional!string prettyPrintJson(string jsonContent) {
+    export static Optional!string APprettyPrintJson(string jsonContent) {
         return CL_CoreAP.prettyPrintJson(jsonContent);
     }
 
-    export static Optional!V getJsonValue(string jsonContent, string path)() {
+    export static Optional!V APgetJsonValue(string jsonContent, string path)() {
         return CL_CoreAP.getJsonValue!V(jsonContent, path);
     }
 
-    export static bool isJsonObject(string jsonContent) {
+    export static bool APisJsonObject(string jsonContent) {
         return CL_CoreAP.isJsonObject(jsonContent);
     }
 
-    export static bool isJsonArray(string jsonContent) {
+    export static bool APisJsonArray(string jsonContent) {
         return CL_CoreAP.isJsonArray(jsonContent);
     }
 
-    export static bool isDigitAP(dchar c){
+    export static bool APisDigitAP(dchar c){
         return CL_PublicCodeOtherCode.isDigitAP(c);
-	}
+    }
 
-    export static bool isInteger(string s){
+    export static bool APisInteger(string s){
         return CL_PublicCodeOtherCode.isInteger(s);
-	}
+    }
 }
